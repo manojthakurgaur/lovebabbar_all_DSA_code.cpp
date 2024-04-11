@@ -697,6 +697,7 @@ int main(){
 //LECTURE4:
 //BITWISE OPERATORS
 //Q.1.Testing
+/*
 #include<iostream>
 using namespace std;
 int main(){
@@ -711,46 +712,104 @@ int main(){
     cout<<(17>>2)<<endl;
     cout<<(17<<2)<<endl;
 }
+*/
+//Leetcode1.1009::Compliment Of an integer
+//Method 1::Using bit manuplation and conditional operator
+/*
+#include<iostream>
+#include<cmath>
+using namespace std;
+int complement(int n){
+            int digit=0;
+            int i=0;
+            int compliment_=0;
+            while(n!=0){
+            int bit=n&1;
+            int complimentbit=(bit==0) ? 1 : 0;
+            compliment_+=(complimentbit<<i);
+            n>>=1;
+            i++;
+            }
+            return compliment_;
+}
 
+int main(){
+    int n;
+    cin>>n;
+    cout<<complement(n);
+    return 0;
+}
+*/
+//Method 2:Love babbar method
+/*#include<iostream>
+using namespace std;
+class Solution{
+    public:
+        int complement(int n){
+            if(n==0) return 1;
+            int m=n;
+            int mask=0;
+            while(m!=0){
+                mask=(mask<<1)|1;
+                m=m>>1;
+            }
+            int ans=(~n)&mask;
+            return ans;
+        }        
+};
+int main(){
+    int n;
+    cin>>n;
+    Solution obj;
+    cout<<obj.complement(n);
+    return 0;
+}
+*/
+//Returning Power of two..Leetcode 231
+//My Method
+// #include<iostream>
+// Using namespace std;
+// class Solution{
+// public:
+//     bool isPowerOfTwo(int n) {
+//         if(n<=0) return false;
+//
+//         int x=log(n)/log(2);
+//         if(pow(2,x)==n){
+//             return true;
+//         }
+//         else{
+//             return false;
+//         }
+//     }
+// };
+// int main(){
+// 	int n;
+// 	Solution obj;
+// 	cout<<obj.isPowerofTwo(n);
+// 	return 0;
+// }
+//Lovebabbar method
+/*#include<iostream>
+using namespace std;
+class Solution{
+public:
+	bool isPowerOfTwo(int n){
+		for(int i=0;i<=30;i++){
+        int ans=pow(2,i);
+        if(ans==n){
+            return true;
+        }
+       }
+       return false;
 
+	}
+};
+int main(){
+	int n;
+	Solution obj;
+	cout<<obj.isPowerOfTwo(n);
+	return 0;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}*/
 
