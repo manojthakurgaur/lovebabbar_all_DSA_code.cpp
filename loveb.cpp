@@ -813,3 +813,27 @@ int main(){
 
 }*/
 
+//11April Q.1..finding nCr of a number.N is given with and ncr to be found.
+#include<iostream>
+using namespace std;
+int ncr(int n,int r){
+    int fact1=n;
+    int fact2=n-r;
+    int i=1;
+    int ans;
+    while(i<n){
+         fact1=fact1*i;
+         if(i<n-r){
+           fact2=fact2*i;
+         } 
+    ans=fact1/(fact1*fact2);
+    i++;
+    }
+    return ans;
+}
+int main(){
+    int n,r;
+    cin>>n >>r;
+    cout<<ncr(n,r);
+}
+
